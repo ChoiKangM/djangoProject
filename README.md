@@ -44,3 +44,45 @@ django 프로젝트를 설치합니다
 ```console
 (myvenv) root@goorm:/workspace/django/mysite# python manage.py migrate
 ```
+이제 `/mysite/tutorialdjango/settings.py`로 이동하셔서 28번째 줄을 수정합니다.  
+모든 사용자의 접속을 허락하는 코드로 수정합니다
+```python
+ALLOWED_HOSTS = ['*']
+```
+이제 `django` 프로젝트를 실행합니다  
+로컬에서 실행하는 경우 [http://0:80/](http://0:80/)로 접속합니다  
+구름 IDE를 사용하는 경우 `/프로젝트/실행 URL과 포트`에서 80번 포트를 설정 후 접속합니다
+```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py runserver 0:80 
+```
+아래의 그림이 뜨면 `django` 설치 완료  
+![django_install_complete_window](/img/django_install_complete.png)
+```console
+```
+
+```console
+```
+
+```console
+```
+
+```console
+```
+
+```console
+```
+
+```console
+```
+```console
+```
+
+```console
+```
+
+```console
+```
+
+```console
+```
+
