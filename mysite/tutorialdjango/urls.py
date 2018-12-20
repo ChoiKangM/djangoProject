@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from main.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # url로 접속 후 첫 화면은 index.html
+    path('',index),
 ]
