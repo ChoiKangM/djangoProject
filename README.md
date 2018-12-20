@@ -2,6 +2,7 @@
 현재 `Youtube`, `Instagram`등 `django`가 기반인 프로젝트가 많습니다  
 어떻게 진행하는지 궁금하다면? [장고 튜토리얼](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)  
 
+## `Django` 환경세팅
 `mysite` 폴더 만들자
 ```console
 root@goorm:/workspace/django# mkdir mysite
@@ -57,20 +58,100 @@ ALLOWED_HOSTS = ['*']
 ```
 아래의 그림이 뜨면 `django` 설치 완료  
 ![django_install_complete_window](/img/django_install_complete.png)
+
+## 첫 페이지 만들자
+
+`/mysite` 폴더 아래에 `/main`폴더를 만듭니다
 ```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py startapp main
+```
+`/mysite/tutorialdjango/settings.py`의 33번째 줄을 보면 `INSTALLED_APPS`가 있습니다
+
+수정을 안한 `django` 기본 세팅값은 아래와 같습니다
+##### 수정 전 `settings.py`
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+좀 전에 수정한 `main` app을 추가합시다.   
+이 작업을 하지 않으면 앱이 구동하지 않습니다.  
+여러 개의 앱을 만들 경우 모두 여기 등록합니다.  
+
+##### 수정 후 `settings.py`
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'main',
+]
+```
+이제 `/mysite/tutorialdjango/urls.py`파일을 수정합니다  
+사용자가 어떤 url을 사용해 들어오는지를 확인해봅시다  
+여기선 사용자가 url로 접속시 첫 화면을 설정합니다  
+
+##### 수정 전 `urls.py`
+```python
+from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
 ```
 
-```console
+##### 수정 후 `urls.py`
+```python
+from django.contrib import admin
+from django.urls import path
+from main.views import index
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # url로 접속 후 첫 화면은 index
+    path('',index),
+]
 ```
 
-```console
-```
+`/mysite/main/views.py`에서 index 함수를 만듭니다.  
+사용자가 `index.html'`을 볼 수 있게 연결합니다.  
 
-```console
-```
+##### `views.py`
+```python
+from django.shortcuts import render
 
-```console
+# index.html로 연결해주는 index 함수
+def index(request):
+    return render(request, 'main/index.html')
 ```
+`/mysite/main/templates/main/index.html` 경로로 `index.html`파일을 만듭니다  
+아래의 마크업을 `index.html`파일에 넣습니다
+```html
+<html>
+<head>
+    <title>Django Tutorial</title>
+</head>
+<body>
+    <h1>메인 페이지입니다</h1>
+</body>
+</html>
+```
+서버를 키고 확인합시다
+```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py runserver 0:80 
+```
+아래의 화면이 나오면 성공!  
+![/img/mainPageTest.png](/img/mainPageTest.png)
+
 
 ```console
 ```
