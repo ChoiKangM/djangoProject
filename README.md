@@ -152,7 +152,10 @@ def index(request):
 아래의 화면이 나오면 성공!  
 ![/img/mainPageTest.png](/img/mainPageTest.png)
 
-
+##### 관리자 `admin` 접속
+`https://웹페이지URL/admin` url로 들어갑니다  
+아래의 화면이 나오면 성공!  
+![/img/djangoAdmin.png](/img/djangoAdmin.png)
 ```console
 ```
 ```console
