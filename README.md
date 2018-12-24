@@ -199,6 +199,21 @@ STATICFILES_DIRS = (
 ```python
 TIME_ZONE = 'Asia/Seoul'
 ```
+#### `Django`의 구조
+`Django`는 `MVC`모델을 `MTV`라고 부릅니다  
+자세한건 다음에 또 다루겠습니다  
+
+`CRUD`는 대부분의 컴퓨터 소프트웨거 가지는 기본적인 데이터 처리 기능인  
+Create(생성), Read(읽기), Update(갱신), Delete(삭제)를 묶어서 일컫는 말입니다.  
+
+
+|  이름  | 조작 |   SQL  |
+|:------:|:----:|:------:|
+| Create | 생성 | INSERT |
+|  Read  | 읽기 | SELECT |
+| Update | 갱신 | UPDATE |
+| Delete | 삭제 | DELETE |
+
 
 ```console
 ```
