@@ -152,13 +152,52 @@ def index(request):
 아래의 화면이 나오면 성공!  
 ![/img/mainPageTest.png](/img/mainPageTest.png)
 
-##### 관리자 `admin` 접속
+#### 관리자 `admin` 접속
 `https://웹페이지URL/admin` url로 들어갑니다  
 아래의 화면이 나오면 성공!  
 ![/img/djangoAdmin.png](/img/djangoAdmin.png)
-```console
+
+#### 정적 이미지 불러오자
+
+`/mysite/static` 폴더를 만들고, 원하는 이미지 파일을 넣습니다.  
+그 후 `/static` 폴더와 `django`와 연결시킵니다.  
+[Static 파일 호출하기 django 공식문서](https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#static)
+##### 수정 전 `settings.py`
+121번째 줄
+```python
+STATIC_URL = '/static/'
 ```
-```console
+##### 수정 후 `settings.py`
+```python
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    # django와 static 폴더 연결
+    os.path.join(BASE_DIR, 'static'),
+)
+```
+
+##### 수정 후 `index.html` 
+```html
+<html>
+<head>
+    <title>Django Tutorial</title>
+</head>
+<body>
+    <h1>메인 페이지입니다</h1>
+    <!-- 정적 이미지 불러오기 -->
+    {% load staticfiles %}
+    <img src="{% static 'digital-nomad-gear.jpg' %}">
+</body>
+</html>
+```
+![img/static_img.png](img/static_img.png)
+
+#### Time Zone 변경
+한국 시간대로 맞춰줍니다
+##### 수정 후 `settings.py`
+109번째 줄
+```python
+TIME_ZONE = 'Asia/Seoul'
 ```
 
 ```console
