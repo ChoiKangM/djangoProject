@@ -323,9 +323,41 @@ admin.site.register(Post)
 이제 `Admin User`를 만들었고 [http://0:80/admin](http://0:80/admin)으로 접속합니다  
 `Admin User`의 아이디와 비밀번호를 입력해 관리자 페이지로 들어갑니다  
 ![django_administration](img/django_administration.png)  
+
 위의 페이지가 나오면 성공!
+
+이제 게시글을 써봅시다  
+
+![admin_post](img/admin_post.png)  
+
+`Add` 버튼을 눌러 글을 작성하러 갑니다  
+
+![add_post](img/add_post.png)    
+
+`postname`과 `contents`를 구분하기 위해 다른 내용으로 작성합시다   
+
+![post_object](img/post_object.png)  
+
+현재 코드에서 작성은 완료하면 게시글 제목이 나오지 않고 Post object로 나옵니다  
+이를 `postname`이 Post object 대신 들어가도록 개선해봅시다  
+
+##### `mysite/main/models.py`
+
 ```python
+from django.db import models
+
+class Post(models.Model):
+    postname = models.CharField(max_length=50)
+    contents = models.TextField()
+    
+    # postname이 Post object 대신 나오기
+    def __str__(self):
+        return self.postname
 ```
+![postname](img/postname.png)
+
+개선완료!
+
 ```python
 ```
 ```python
