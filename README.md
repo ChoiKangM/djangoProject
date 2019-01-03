@@ -277,5 +277,56 @@ root@goorm:/workspace/django/mysite# source myvenv/bin/activate
 
 ### `Model` 만들기
 
-각각의 포스팅에 저장될 공간을 만듭니다.  
+블로그에서 각각의 포스팅에 저장될 공간을 만듭니다.  
+`Post` 게시글 마다 `postname`(제목), `contents`(내용)이 존재합니다.  
+이를 구현한 아래의 파이썬 코드
 
+##### `mysite/main/models.py`
+```python
+from django.db import models
+
+class Post(models.Model):
+    postname = models.CharField(max_length=50)
+    contents = models.TextField()
+```
+
+이제 모델을 만들었고 `django`의 db에 `migrate`해줍니다  
+게시글마다 제목과 내용을 저장할 수 있게 됩니다  
+
+##### `Ctrl + C`를 눌러 `웹서버`를 종료 후 `migration`
+
+```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py makemigrations main
+```
+
+```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py migrate
+```
+![post migration](img/post_migration.png)  
+
+#### `Admin`에 권한
+##### `mysite/main/admin.py`
+```python
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+```
+#### `Superuser` 만들기
+`Superuser`는 게시글 삭제, 수정, 저장하고,  
+다른 유저들을 관리합니다.
+```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py createsuperuser
+```
+![createsuperuser](img/createsuperuser.png)  
+간단한 비밀번호를 입력하니 똑똑한 장고가 거부합니다  
+이제 `Admin User`를 만들었고 [http://0:80/admin](http://0:80/admin)으로 접속합니다  
+`Admin User`의 아이디와 비밀번호를 입력해 관리자 페이지로 들어갑니다  
+![django_administration](img/django_administration.png)  
+위의 페이지가 나오면 성공!
+```python
+```
+```python
+```
+```python
+```
