@@ -1,5 +1,5 @@
 # `Django`를 공부하자
-현재 `Youtube`, `Instagram`등 `django`가 기반인 프로젝트가 많습니다  
+현재 `Instagram`, `Pinterest`등 `django`가 기반인 프로젝트가 많습니다  
 어떻게 진행하는지 궁금하다면? [장고 튜토리얼](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)  
 
 ## `Django` 환경세팅
@@ -215,12 +215,67 @@ Create(생성), Read(읽기), Update(갱신), Delete(삭제)를 묶어서 일컫
 | Delete | 삭제 | DELETE |
 
 
-```console
+## `Blog` 페이지 만들자
+
+##### 수정 후 `urls.py`
+```python
+from django.contrib import admin
+from django.urls import path
+# index, blog 페이지 추가
+from main.views import index, blog
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # url로 접속 후 첫 화면은 index.html
+    path('', index),
+    # localhost:80/blog 접속하면 blog 페이지
+    path('blog/', blog),
+]
 ```
 
-```console
+##### 수정 후 `views.py`
+```python
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+    return render(request, 'main/index.html')
+
+def blog(request):
+    return render(request, 'main/blog.html')
 ```
 
-```console
+###### `mysite/main/template/main/blog.html` 작성
+```html
+<html>
+<head>
+    <title>Django Tutorial!</title>
+</head>
+<body>
+    <h1>Blog Page!</h1>
+</body>
+</html>
 ```
+![블로그 페이지 띄우기](img/Blog_page.png)  
+위의 페이지가 뜨면 성공!  
+
+
+서버를 어떻게 실행했는지 기억나시나요?
+### `웹서버 실행` 복습  
+
+**프로젝트를 실행할때마다 반복해서 사용하는 명령어입니다**  
+파이썬 가상환경 설정 
+```console
+root@goorm:/workspace/django/mysite# source myvenv/bin/activate
+```
+이제 `django` 웹서버를 실행합시다  
+로컬에서 실행하는 경우 [http://0:80/](http://0:80/)로 접속합니다  
+구름 IDE를 사용하는 경우 `/프로젝트/실행 URL과 포트`에서 80번 포트를 설정 후 접속합니다
+```console
+(myvenv) root@goorm:/workspace/django/mysite# python manage.py runserver 0:80 
+```
+
+### `Model` 만들기
+
+각각의 포스팅에 저장될 공간을 만듭니다.  
 

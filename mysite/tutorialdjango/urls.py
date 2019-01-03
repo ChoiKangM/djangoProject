@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import index
+# index, blog 페이지 추가
+from main.views import index, blog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # url로 접속 후 첫 화면은 index.html
-    path('',index),
+    path('', index),
+    # localhost:80/blog 접속하면 blog 페이지
+    path('blog/', blog),
 ]
