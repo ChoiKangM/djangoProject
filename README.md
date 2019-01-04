@@ -513,6 +513,9 @@ def postdetails(request, pk):
 
 `blog`로 가는 링크 추가!
 
+## 이미지 
+이미지 5개 추가합시다
+
 ```python
 ```
 ```python

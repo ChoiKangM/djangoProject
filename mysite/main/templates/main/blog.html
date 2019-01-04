@@ -5,6 +5,7 @@
 <body>
     <h1>Blog Page!</h1>
     <table>
+    <!--https://django-3-nniqi.run.goorm.io 를 자신의 url로 수정하기 -->
     {% for list in postlist %}
     <tr onclick="location.href='https://django-3-nniqi.run.goorm.io/blog/{{ list.pk }}/'">
         <td>{{list.postname}}</td>
