@@ -11,3 +11,7 @@ def blog(request):
     postlist = Post.objects.all()
     return render(request, 'main/blog.html', {'postlist':postlist})
 
+# 게시글별 세부페이지
+def postdetails(request, pk):
+    postlist = Post.objects.get(pk=pk)
+    return render(request, 'main/postdetails.html', {'postlist':postlist})

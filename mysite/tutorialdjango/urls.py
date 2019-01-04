@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-# index, blog 페이지 추가
-from main.views import index, blog
+# index, blog, postdetails 페이지 추가
+from main.views import index, blog, postdetails
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,6 @@ urlpatterns = [
     path('', index),
     # localhost:80/blog 접속하면 blog 페이지
     path('blog/', blog),
+    # localhost:80/blog/게시글넘버 게시글 세부페이지
+    path('blog/<int:pk>/', postdetails),
 ]

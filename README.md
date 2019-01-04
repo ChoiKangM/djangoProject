@@ -406,3 +406,73 @@ def blog(request):
 기본적인 게시판을 만들었습니다  
 `django` 별거 없죠?
 
+### 게시글 세부페이지
+게시글마다 `postdetails`세부페이지를 만들어봅니다  
+
+##### `/mysite/tutorialdjango/urls.py`
+첫번째 게시글 세부페이지 들어가기 - [http://0:80/blog/1](http://0:80/blog/1)  
+
+```python
+from django.contrib import admin
+from django.urls import path
+# index, blog, postdetails 페이지 추가
+from main.views import index, blog, postdetails
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # url로 접속 후 첫 화면은 index.html
+    path('', index),
+    # localhost:80/blog 접속하면 blog 페이지
+    path('blog/', blog),
+    # localhost:80/blog/게시글넘버 게시글 세부페이지
+    path('blog/<int:pk>/', postdetails),
+]
+```
+##### `/mysite/main/views.py`
+`postlist` 세부페이지에 가져올 내용을 정합니다  
+특정 `post` 1개만 가져옵니다  
+```python
+from django.shortcuts import render
+# 모델에 Post 가져오기
+from .models import Post
+
+# Create your views here.
+def index(request):
+    return render(request, 'main/index.html')
+
+# blog에 Post를 전부 가져오자
+def blog(request):
+    postlist = Post.objects.all()
+    return render(request, 'main/blog.html', {'postlist':postlist})
+
+# 게시글별 세부페이지
+def postdetails(request, pk):
+    postlist = Post.objects.get(pk=pk)
+    return render(request, 'main/postdetails.html', {'postlist':postlist})
+```
+##### `mysite/main/templates/main/postdetails.html`
+```html
+<html>
+<head>
+    <title>Django Tutorials!</title>
+</head>
+<body>
+    <h1>Postdetails Page!</h1>
+    <p>{{postlist.postname}}</p>
+    <p>{{postlist.contents}}</p>
+</body>
+</html>
+```
+![postdetails](img/postdetails.png)  
+
+게시글 세부페이지 완성!
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+
+
