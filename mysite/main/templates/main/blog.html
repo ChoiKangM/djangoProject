@@ -6,7 +6,7 @@
     <h1>Blog Page!</h1>
     <table>
     {% for list in postlist %}
-    <tr>
+    <tr onclick="location.href='https://django-3-nniqi.run.goorm.io/blog/{{ list.pk }}/'">
         <td>{{list.postname}}</td>
         <td>{{list.contents}}</td>
     </tr>

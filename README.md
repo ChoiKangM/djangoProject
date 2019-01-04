@@ -466,7 +466,30 @@ def postdetails(request, pk):
 ![postdetails](img/postdetails.png)  
 
 게시글 세부페이지 완성!
-```python
+
+### `blog` 페이지에서 `postdetails` 페이지 링크
+`blog` 게시글 목록에서 클릭하면 `postdetails` 세부페이지로 갈 수 있게 합니다
+##### `mysite/main/templates/main/blog.html`
+`<tr>`태그에 onclick 요소를 넣어 클릭시 넘어가게 합시다  
+`http://0:80`url은 자신의 url에 맞춰 수정합니다
+
+```html
+<html>
+<head>
+    <title>Django Tutorial!</title>
+</head>
+<body>
+    <h1>Blog Page!</h1>
+    <table>
+    {% for list in postlist %}
+    <tr onclick="location.href='http://0:80/blog/{{ list.pk }}/'">
+        <td>{{list.postname}}</td>
+        <td>{{list.contents}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
 ```
 ```python
 ```
