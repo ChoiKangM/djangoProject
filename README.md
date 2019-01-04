@@ -491,8 +491,28 @@ def postdetails(request, pk):
 </body>
 </html>
 ```
-```python
+### `postdetails` 페이지에서 `blog`페이지로 링크
+
+##### `mysite/main/templates/main/postdetails.html`
+`<a href="http://0:80/blog/">목록</a>`를 추가합니다  
+`http://0:80`url은 자신의 url에 맞춰 수정합니다
+```html
+<html>
+<head>
+    <title>Django Tutorials!</title>
+</head>
+<body>
+    <h1>Postdetails Page!</h1>
+    <p>{{postlist.postname}}</p>
+    <p>{{postlist.contents}}</p>
+    <a href="http://0:80/blog/">목록</a>
+</body>
+</html>
 ```
+![postdetails_bloglink](img/postdetails_bloglink.png)
+
+`blog`로 가는 링크 추가!
+
 ```python
 ```
 ```python
