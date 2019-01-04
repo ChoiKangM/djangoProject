@@ -358,7 +358,51 @@ class Post(models.Model):
 
 개선완료!
 
+### `blog` 페이지에 게시글 띄우기
+
+입력한 게시글을 [http://0:80/blog](http://0:80/blog) 페이지에 띄워봅시다  
+`View`가 `post`게시글을 가져오고,  
+`Template`에 `post`게시글을 뿌려줍니다
+
+
+##### 수정 후 `mysite/main/views.py`
+`View`가 `post`게시글을 가져옵니다
 ```python
+from django.shortcuts import render
+# 모델에 Post 가져오기
+from .models import Post
+
+# Create your views here.
+def index(request):
+    return render(request, 'main/index.html')
+
+# blog에 Post를 전부 가져오자
+def blog(request):
+    postlist = Post.objects.all()
+    return render(request, 'main/blog.html', {'postlist':postlist})
 ```
-```python
+##### 수정 후 `mysite/main/templates/main/blog.html`
+`Template`에 `post`게시글을 뿌려줍니다
+```html
+<html>
+<head>
+    <title>Django Tutorial!</title>
+</head>
+<body>
+    <h1>Blog Page!</h1>
+    <table>
+    {% for list in postlist %}
+    <tr>
+        <td>{{list.postname}}</td>
+        <td>{{list.contents}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
 ```
+![blog_posting](img/blog_posting.png)  
+
+기본적인 게시판을 만들었습니다  
+`django` 별거 없죠?
+
