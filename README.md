@@ -630,10 +630,6 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 </html>
 ```
 이미지가 뜬 걸 확인합니다  
-![postdetails_with_img](img/postdetails_with_img.png)`
+![postdetails_with_img](img/postdetails_with_img.png)   
 
-
-```python
-```
-
-
+고생 많으셨습니다
