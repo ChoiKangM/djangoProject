@@ -123,4 +123,5 @@ STATICFILES_DIRS = (
     # django와 static 폴더 연결
     os.path.join(BASE_DIR, 'static'),
 )
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

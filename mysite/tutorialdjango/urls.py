@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 # index, blog, postdetails 페이지 추가
 from main.views import index, blog, postdetails
+# 이미지 url 설정
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +30,6 @@ urlpatterns = [
     # localhost:80/blog/게시글넘버 게시글 세부페이지
     path('blog/<int:pk>/', postdetails),
 ]
+
+# 이미지 url 설정
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
