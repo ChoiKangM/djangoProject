@@ -579,7 +579,7 @@ class Post(models.Model):
 이렇게 에러가 납니다  
 ![img_url_error](img/img_url_error.png)  
 
-이미지 url을 사
+이미지의 경로를 설정해 가져옵시다
 
 ##### `mysite/tutorialdjango/urls.py`
 
