@@ -2,6 +2,16 @@
 현재 `Instagram`, `Pinterest`등 `django`가 기반인 프로젝트가 많습니다  
 어떻게 진행하는지 궁금하다면? [장고 튜토리얼](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)  
 
+#### 순서 
+
+* [`Django` 환경세팅](#django-환경세팅) 
+* [첫 페이지](#첫-페이지-만들자)
+* [목록 페이지](#목록-페이지-만들자)
+* [`Model`](#model-만들기)
+* [`Superuser`](#superuser-만들기)
+* [게시글 세부페이지](#게시글-세부페이지)
+* [이미지 업로드](#이미지)
+
 ## `Django` 환경세팅
 `mysite` 폴더 만들자
 ```console
@@ -215,7 +225,7 @@ Create(생성), Read(읽기), Update(갱신), Delete(삭제)를 묶어서 일컫
 | Delete | 삭제 | DELETE |
 
 
-## `Blog` 페이지 만들자
+## 목록 페이지 만들자
 
 ##### 수정 후 `urls.py`
 ```python
@@ -275,7 +285,7 @@ root@goorm:/workspace/django/mysite# source myvenv/bin/activate
 (myvenv) root@goorm:/workspace/django/mysite# python manage.py runserver 0:80 
 ```
 
-### `Model` 만들기
+## `Model` 만들기
 
 블로그에서 각각의 포스팅에 저장될 공간을 만듭니다.  
 `Post` 게시글 마다 `postname`(제목), `contents`(내용)이 존재합니다.  
@@ -312,7 +322,7 @@ from .models import Post
 
 admin.site.register(Post)
 ```
-#### `Superuser` 만들기
+### `Superuser` 만들기
 `Superuser`는 게시글 삭제, 수정, 저장하고,  
 다른 유저들을 관리합니다.
 ```console
@@ -406,7 +416,7 @@ def blog(request):
 기본적인 게시판을 만들었습니다  
 `django` 별거 없죠?
 
-### 게시글 세부페이지
+## 게시글 세부페이지
 게시글마다 `postdetails`세부페이지를 만들어봅니다  
 
 ##### `/mysite/tutorialdjango/urls.py`
@@ -513,7 +523,7 @@ def postdetails(request, pk):
 
 `blog`로 가는 링크 추가!
 
-## 이미지 
+## 이미지 업로드
 사진이 들어갈 부분을 추가합니다  
 게시글 모델에 사진이 들어갈 변수를 정하고,  
 기존의 게시글엔 사진값에 `NULL`값을 넣습니다.  
@@ -611,7 +621,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 ##### `mysite/main/templates/main/postdetails.html`
 게시글마다 이미지를 보여줍니다
-```python
+```html
 <html>
 <head>
     <title>Django Tutorials!</title>
