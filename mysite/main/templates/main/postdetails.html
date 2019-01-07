@@ -5,7 +5,11 @@
 <body>
     <h1>Postdetails Page!</h1>
     <p>{{postlist.postname}}</p>
-    <p>{{postlist.contents}}</p>
+    <p>{{postlist.contents|linebreaks}}</p>
+    <!-- 이미지 보여주기 -->
+    {% if postlist.mainphoto%}
+        <img src="{{ postlist.mainphoto.url }}" alt="">
+    {% endif %}
     <!--https://django-3-nniqi.run.goorm.io 를 자신의 url로 수정하기 -->
     <a href="https://django-3-nniqi.run.goorm.io/blog/">목록</a>
 </body>

@@ -606,12 +606,31 @@ urlpatterns = [
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
-이제 아래와 같은 사진이 뜹니다
+이제 업로드한 사진이 뜹니다  
 ![img_url_ex](img/img_url_ex.png)
-```console
-```
 
-`
+##### `mysite/main/templates/main/postdetails.html`
+게시글마다 이미지를 보여줍니다
+```python
+<html>
+<head>
+    <title>Django Tutorials!</title>
+</head>
+<body>
+    <h1>Postdetails Page!</h1>
+    <p>{{postlist.postname}}</p>
+    <p>{{postlist.contents|linebreaks}}</p>
+    <!-- 이미지 보여주기 -->
+    {% if postlist.mainphoto%}
+        <img src="{{ postlist.mainphoto.url }}" alt="">
+    {% endif %}
+    <!--https://django-3-nniqi.run.goorm.io 를 자신의 url로 수정하기 -->
+    <a href="https://django-3-nniqi.run.goorm.io/blog/">목록</a>
+</body>
+</html>
+```
+이미지가 뜬 걸 확인합니다  
+![postdetails_with_img](img/postdetails_with_img.png)`
 
 
 ```python
