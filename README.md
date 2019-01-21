@@ -18,6 +18,10 @@
 - [이미지 업로드](#이미지-업로드)
 
 ## `Django` 환경세팅
+
+개인 컴퓨터에 설치하거나 [구름 IDE](https://ide.goorm.io)에서 사용하여도 됩니다  
+[구름 IDE에 프로젝트 생성하기](https://github.com/haedal-programming/goormTutorials)
+
 `mysite` 폴더 만들자
 ```console
 root@goorm:/workspace/django# mkdir mysite
