@@ -1,6 +1,8 @@
 # `Django`를 공부하자
 현재 `Instagram`, `Pinterest`등 `django`가 기반인 프로젝트가 많습니다  
-어떻게 진행하는지 궁금하다면? [장고 튜토리얼](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)  
+이 튜토리얼은 초심자가 사진을 업로드 할 수 있는 블로그를 제작하기 위해  
+기본적인 개념만 짚기에 깊이가 얕습니다.  
+깊이 있는 공부가 하고 싶다면? [장고 튜토리얼 공식문서로 바로가기](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)  
 
 #### 순서 
 
