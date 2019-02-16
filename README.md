@@ -76,7 +76,7 @@ ALLOWED_HOSTS = ['*']
 로컬에서 실행하는 경우 [http://0:80/](http://0:80/)로 접속합니다  
 구름 IDE를 사용하는 경우 `/프로젝트/실행 URL과 포트`에서 80번 포트를 설정 후 접속합니다
 ```console
-(myvenv) root@goorm:/workspace/django/mysite# python manage.py runserver 0:80 
+(myvenv) root@goorm:/workspace/django/mysite/tutorialdjango# python manage.py runserver 0:80 
 ```
 아래의 그림이 뜨면 `django` 설치 완료  
 ![django_install_complete_window](/img/django_install_complete.png)
