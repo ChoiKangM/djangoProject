@@ -210,7 +210,7 @@ STATICFILES_DIRS = (
 <body>
     <h1>메인 페이지입니다</h1>
     <!-- 정적 이미지 불러오기 -->
-    {% load staticfiles %}
+    {% load static %}
     <img src="{% static 'digital-nomad-gear.jpg' %}">
 </body>
 </html>
