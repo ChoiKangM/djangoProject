@@ -64,6 +64,7 @@ django 프로젝트를 설치합니다
 ```
 `django`가 사용할 DB를 생성합니다(migrate 합니다)
 ```console
+(myvenv) root@goorm:/workspace/django/mysite# cd tutorialdjango
 (myvenv) root@goorm:/workspace/django/mysite# python manage.py migrate
 ```
 이제 `/mysite/tutorialdjango/settings.py`로 이동하셔서 28번째 줄을 수정합니다.  
