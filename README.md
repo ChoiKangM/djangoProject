@@ -57,7 +57,7 @@ django 프로젝트를 설치합니다
 ```console
 (myvenv)root@goorm:/workspace/django/mysite# pip3 install django==2.1
 ```
-현재 `/django/mysite` 폴더에 `/tutorialdiango` 프로젝트를 생성합니다   
+현재 `/django/mysite` 폴더에 `tutorialdiango` 프로젝트를 생성합니다   
 `/tutorialdjango` 폴더와 `manage.py`가 생성됩니다
 ```console
 (myvenv) root@goorm:/workspace/django/mysite# django-admin startproject tutorialdjango . 
